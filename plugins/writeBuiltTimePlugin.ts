@@ -20,7 +20,7 @@ const writeBuiltTimePlugin = (buildDirProps: string): Plugin => {
         );
         let htmlContent = readFileSync(indexPath, 'utf-8');
         htmlContent = htmlContent.replace(
-          `<!DOCTYPE html>`,
+          `<!doctype html>`,
           `<!-- Build time: ${timestampJST} -->\n<!DOCTYPE html>`
         );
         writeFileSync(indexPath, htmlContent);
