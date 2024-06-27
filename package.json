@@ -1,14 +1,20 @@
 {
+  "name": "",
+  "author": "Yuma-Satake",
   "version": "0.0.1",
-  "private": true,
   "type": "module",
   "main": "src/main.tsx",
   "engines": {
     "node": "18.x"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/.git"
+  },
   "scripts": {
     "dev": "vite --mode dev --host",
     "build": "pnpm build:dev",
+    "build:dev": "tsc && vite build --mode dev",
     "build:analyze": "tsc && vite build --mode dev",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 && tsc --noEmit",
     "format": "prettier --write ./",
@@ -16,10 +22,12 @@
     "prepare": "pnpm dlx husky install"
   },
   "dependencies": {
+    "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.20",
     "@mui/material": "^5.15.20",
     "@tanstack/react-query": "^5.45.0",
     "@vitejs/plugin-react-swc": "^3.7.0",
+    "axios": "^1.7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1",
