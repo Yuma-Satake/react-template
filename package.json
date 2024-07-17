@@ -19,7 +19,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 && tsc --noEmit",
     "format": "prettier --write ./",
     "check": "pnpm lint && pnpm format",
-    "init-setup": "pnpm install && node init-setup.js",
+    "init-setup": "pnpm install && node init-setup.js && rm init-setup.js && git add .",
     "prepare": "pnpm dlx husky install"
   },
   "dependencies": {
