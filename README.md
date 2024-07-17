@@ -2,11 +2,21 @@
 
 ### install pnpm
 
-※もし`pnpm`がインストールされていない場合のみ
+もし`pnpm`がインストールされていない場合のみ
 
 ```zsh
 npm install -g pnpm
 ```
+
+### init setup
+
+テンプレートからの初期セットアップ
+
+```zsh
+pnpm init-setup
+```
+
+## Commands
 
 ### install dependencies
 
@@ -31,8 +41,6 @@ pnpm build
 ```zsh
 pnpm check
 ```
-
-## Commands
 
 ### GenerateAnalyze
 
