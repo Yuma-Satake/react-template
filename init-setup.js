@@ -33,6 +33,14 @@ inquirer.prompt(questions).then((answers) => {
   fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2));
   console.log('✅package.jsonを更新しました。');
 
+  const indexHtml = fs.readFileSync('index.html', 'utf-8');
+  const updatedIndexHtml = indexHtml.replace(
+    /<title>.*<\/title>/,
+    `<title>${repositoryName}</title>`
+  );
+  fs.writeFileSync('index.html', updatedIndexHtml);
+  console.log('✅index.htmlのtitleを更新しました。');
+
   if (answers.commitLint === 'no') {
     fs.rmSync('./.husky', { recursive: true, force: true });
     console.log('✅commitLintを削除しました。');
