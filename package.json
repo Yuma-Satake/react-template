@@ -23,7 +23,7 @@
     "prepare": "pnpm dlx husky install"
   },
   "dependencies": {
-    "@emotion/styled": "^11.11.5",
+    "@emotion/styled": "^11.13.0",
     "@mui/icons-material": "^5.16.6",
     "@mui/material": "^5.16.6",
     "@tanstack/react-query": "^5.49.2",
