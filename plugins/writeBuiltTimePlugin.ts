@@ -1,5 +1,5 @@
 import { log } from 'console';
-import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { existsSync, readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 import { Plugin } from 'vite';
 
@@ -19,10 +19,7 @@ const writeBuiltTimePlugin = (buildDirProps: string): Plugin => {
           new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' })
         );
         let htmlContent = readFileSync(indexPath, 'utf-8');
-        htmlContent = htmlContent.replace(
-          `<!doctype html>`,
-          `<!-- Build time: ${timestampJST} -->\n<!DOCTYPE html>`
-        );
+        htmlContent = `<!-- Build time: ${timestampJST} -->\n${htmlContent}`;
         writeFileSync(indexPath, htmlContent);
         const barStr = '-'.repeat(32);
         log(
