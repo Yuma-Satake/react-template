@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import fs from 'fs';
 import inquirer from 'inquirer';
 
@@ -26,8 +25,8 @@ inquirer.prompt(questions).then((answers) => {
   const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
 
   const { repositoryURL } = answers;
-  const [, , , repositoryOrganization, repositoryName] = repositoryURL.split('/');
-  packageJson.name = repositoryName;
+  const [, , , repositoryOrganization, repositoryNameGit] = repositoryURL.split('/');
+  const repositoryName = repositoryNameGit.slice(0, -4);
   packageJson.repository.url = `git+https://github.com/${repositoryOrganization}/${repositoryName}.git`;
 
   fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2));
@@ -63,6 +62,15 @@ inquirer.prompt(questions).then((answers) => {
   fs.writeFileSync('README.md', updatedReadmeContent);
   // biome-ignore lint/suspicious/noConsole: <explanation>
   console.log('✅README.mdを更新');
+
+  const viteConfigContent = fs.readFileSync('vite.config.mts', 'utf-8');
+  const updatedViteConfigContent = viteConfigContent.replace(
+    /const productPath = '';/,
+    `const productPath = '${repositoryName}';`
+  );
+  fs.writeFileSync('vite.config.mts', updatedViteConfigContent);
+  // biome-ignore lint/suspicious/noConsole: <explanation>
+  console.log('✅vite.config.mtsを更新');
 
   // biome-ignore lint/suspicious/noConsole: <explanation>
   console.log('🏆テンプレートからの初期設定が完了しました。');
