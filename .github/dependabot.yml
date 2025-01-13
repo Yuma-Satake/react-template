@@ -4,6 +4,3 @@ updates:
     directory: '/'
     schedule:
       interval: 'monthly'
-    ignore:
-      - dependency-name: 'prettier'
-        versions: ['3.3.2']

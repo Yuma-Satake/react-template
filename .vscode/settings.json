@@ -1,5 +1,5 @@
 {
-  "cSpell.words": ["RITTAI", "rittai", "usecases", "aspida", "openapi", "satake", "tanstack"],
+  "cSpell.words": ["usecases", "aspida", "openapi", "satake", "tanstack"],
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "biomejs.biome",
   "[typescript]": {
