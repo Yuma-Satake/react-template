@@ -1,6 +1,6 @@
-import { Stack, Typography, Button } from '@mui/material';
+import { Button, Stack, Typography } from '@mui/material';
 import { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 export const NotFoundPage: FC = () => {
   const router = useNavigate();

@@ -1,7 +1,7 @@
-import { FC, ReactNode } from 'react';
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import { NotFoundPage } from '@/components/pageContent/NotFoundPage';
 import { IndexPage } from '@/features/index/IndexPage';
+import { FC, ReactNode } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router';
 
 type RouteItemType = {
   path: string;
