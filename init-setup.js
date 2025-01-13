@@ -31,6 +31,7 @@ inquirer.prompt(questions).then((answers) => {
   packageJson.repository.url = `git+https://github.com/${repositoryOrganization}/${repositoryName}.git`;
 
   fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2));
+  // biome-ignore lint/suspicious/noConsole: <explanation>
   console.log('✅package.jsonを更新');
 
   const indexHtml = fs.readFileSync('index.html', 'utf-8');
@@ -39,24 +40,30 @@ inquirer.prompt(questions).then((answers) => {
     `<title>${repositoryName}</title>`
   );
   fs.writeFileSync('index.html', updatedIndexHtml);
+  // biome-ignore lint/suspicious/noConsole: <explanation>
   console.log('✅index.htmlを更新');
 
   if (answers.commitLint === 'no') {
     fs.rmSync('./.husky', { recursive: true, force: true });
+    // biome-ignore lint/suspicious/noConsole: <explanation>
     console.log('✅commitLintを削除');
     fs.unlinkSync('lint-staged.config.js');
+    // biome-ignore lint/suspicious/noConsole: <explanation>
     console.log('✅lint-staged.config.jsを削除');
   }
 
   if (answers.dependabot === 'no') {
     fs.unlinkSync('.github/dependabot.yml');
+    // biome-ignore lint/suspicious/noConsole: <explanation>
     console.log('✅dependabot.ymlを削除');
   }
 
   const readmeContent = fs.readFileSync('README.md', 'utf-8');
   const updatedReadmeContent = `# ${repositoryName}\n\n${readmeContent}`;
   fs.writeFileSync('README.md', updatedReadmeContent);
+  // biome-ignore lint/suspicious/noConsole: <explanation>
   console.log('✅README.mdを更新');
 
+  // biome-ignore lint/suspicious/noConsole: <explanation>
   console.log('🏆テンプレートからの初期設定が完了しました。');
 });
