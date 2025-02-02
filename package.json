@@ -39,7 +39,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@types/node": "^22.13.0",
-    "@types/react": "^19.0.6",
+    "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "dotenv": "^16.4.7",
     "husky": "^9.1.7",
